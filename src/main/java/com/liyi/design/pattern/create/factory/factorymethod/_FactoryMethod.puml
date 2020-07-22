@@ -1,0 +1,69 @@
+@startuml
+abstract class Pizza{
+
+    String type;
+
+    abstract void prepare();
+    void cook();
+    void cut();
+    void box();
+}
+
+class BJGreekPizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class BJCheesePizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class LDGreekPizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class LDCheesePizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class OrderPizza{
+    OrderPizza(); 调用createPizza
+    createPizza(); 抽象方法，让子类创建其类型
+}
+
+class OrderPizzaBJ extends OrderPizza{
+    createPizza();子类创建
+}
+
+class OrderPizzaLD extends OrderPizza{
+    createPizza();子类创建
+}
+
+class OrderStore{
+    main();
+}
+
+
+
+Pizza <|-- BJGreekPizza
+Pizza <|-- BJCheesePizza
+Pizza <|-- LDGreekPizza
+Pizza <|-- LDCheesePizza
+BJGreekPizza <.. OrderPizzaBJ
+BJCheesePizza <.. OrderPizzaBJ
+LDGreekPizza <.. OrderPizzaLD
+LDCheesePizza <.. OrderPizzaLD
+
+OrderPizzaBJ <.. OrderStore
+OrderPizzaLD <.. OrderStore
+
+
+
+@enduml

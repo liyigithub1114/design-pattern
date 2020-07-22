@@ -1,0 +1,53 @@
+使用 继承的方式， 使两个不相关的类 高耦合
+@startuml
+class A {
+  method1();
+  method2();
+  method3();
+}
+class B
+B --|> A
+@enduml
+
+
+//使用聚合的方式
+@startuml
+class A{
+  method1();
+  method2();
+  method3();
+}
+class B{
+ A a = new A;
+}
+B *--> A
+@enduml
+
+
+//使用组合的方式
+@startuml
+class A{
+  method1();
+  method2();
+  method3();
+}
+class B{
+ A a;
+ setA(A a);
+}
+B *--> A
+@enduml
+
+
+//使用依赖的方式
+@startuml
+class A{
+  method1();
+  method2();
+  method3();
+}
+class B{
+  method(A a);
+}
+B *--> A
+@enduml

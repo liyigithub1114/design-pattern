@@ -1,0 +1,37 @@
+@startuml
+abstract class Pizza{
+
+    String type;
+
+    abstract void prepare();
+    void cook();
+    void cut();
+    void box();
+}
+
+class GreekPizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class CheesePizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class OrderPizza{
+    OrderPizza();//无参构造，下订单
+}
+
+class OrderStore{
+    main();
+}
+
+OrderPizza <.. OrderStore
+Pizza <.. OrderPizza
+Pizza <|-- GreekPizza
+Pizza <|-- CheesePizza
+
+@enduml

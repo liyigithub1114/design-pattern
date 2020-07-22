@@ -1,0 +1,46 @@
+@startuml
+
+interface Iterator{
+    boolean hasNext();
+    Object next();
+}
+
+class ComputerCollegeIterator implements Iterator{
+    boolean hasNext();
+    Object next();
+}
+
+class InfoCollegeIterator implements Iterator{
+    boolean hasNext();
+    Object next();
+}
+
+abstract class College{
+    String name;
+    setName();
+    getName();
+    Iterator createIterator();
+}
+
+class InfoCollege extends College{
+    String name;
+    setName();
+    getName();
+    Iterator createIterator();
+}
+
+class ComputerCollege extends College{
+    String name;
+    setName();
+    getName();
+    Iterator createIterator();
+}
+
+class Print{
+    print(List<College college>);
+}
+
+InfoCollege --> InfoCollegeIterator
+ComputerCollege --> ComputerCollegeIterator
+Print --> College
+@enduml

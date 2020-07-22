@@ -1,0 +1,16 @@
+抽象工厂：
+        关心某个对象由什么工厂生产，不关心你的过程
+         BJFactory生产BJPizza
+
+建造者模式： 角色（产品、抽象建造者、具体建造者、指挥者）
+        在有一套具体的蓝图的情况下，对产品进行流程的组成
+        buildBase();
+        buildWalls();
+        roofed();
+        再蓝图不变的情况下，新建一个产品， 只需要去继承 AbstractBuilder(HighHouse)
+
+JDK中的建造模式
+StringBuilder 角色：指挥者 + 具体构建者
+AbstractStringBuilder ：具体建造者
+Appendable 角色 : 抽象建造者
+

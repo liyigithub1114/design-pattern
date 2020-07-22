@@ -1,0 +1,31 @@
+@startuml
+abstract class WebSite{
+    void use(User user); user是外部状态
+}
+
+class User{
+    String name;
+
+    get();
+    set();
+}
+
+class ConcreateWebSite{
+    String type;
+
+    public ConcreateWebSize(String type);
+    setType();
+    void use(User user);
+}
+
+class WebSiteFactory{
+    HashMap<String, WebSite> pools;
+
+    WebSite getWebSite();
+    int getCount();
+}
+
+WebSite <|-- ConcreateWebSite
+User <.. ConcreateWebSite
+WebSiteFactory <.. WebSite
+@enduml

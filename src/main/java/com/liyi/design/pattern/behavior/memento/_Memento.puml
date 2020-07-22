@@ -1,0 +1,22 @@
+@startuml
+
+class MyObject{
+    int att;
+    int val;
+
+    createMemento(int att, int val);
+    getFromMemento(Memento memento);
+}
+
+class Memento{
+    int att;
+    int val;
+    public Memento(int att, int val);
+}
+
+class Caretaker{
+    Memento memento;
+    getMemento();
+}
+
+@enduml

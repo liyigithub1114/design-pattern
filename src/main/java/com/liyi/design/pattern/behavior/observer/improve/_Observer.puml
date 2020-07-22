@@ -1,0 +1,27 @@
+@startuml
+
+interface Observer{
+    void update();
+    void display();
+}
+
+interface Subject{
+    boolean registryObserver(Observer observer);
+    boolean removeObserver(Observer observer);
+    boolean notifyObserver();
+}
+
+class WetherData implements Subject{
+    List<Observer> observers;
+    boolean registryObserver(Observer observer);
+    boolean removeObserver(Observer observer);
+    boolean notifyObserver();
+}
+
+class MyObserver implements Observer{
+    void update();
+    void display();
+}
+
+Observer o--> WetherData
+@enduml

@@ -1,0 +1,34 @@
+@startuml
+
+class B
+class D
+class A
+class C
+
+A : method1(); method2(); method3();
+C : method1(); method4(); method5();
+
+B ..|> MyInterface
+D ..|> MyInterface
+
+A --> MyInterface
+C --> MyInterface
+
+interface MyInterface{
+    method1();
+    method2();
+    method3();
+    method4();
+    method5();
+}
+
+@enduml
+泛化， Generalization ： <|--
+关联， Association ： <--
+组合， Composition ： *--
+聚合， Aggregation ： o--
+实现， Realization ： <|..
+依赖， Dependency ： <..
+
+类A通过接口MyInterface依赖类B，
+类C通过接口MyInterface依赖类D，

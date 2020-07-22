@@ -1,0 +1,40 @@
+@startuml
+
+abstract class Controller{
+    boolean open();
+    boolean close();
+}
+
+class DVDController{
+    boolean open();
+    boolean close();
+}
+
+class MusicController{
+    boolean open();
+    boolean close();
+}
+
+class PopcornController{
+    boolean open();
+    boolean close();
+}
+
+class MyFacade{
+    DVDController c1;
+    MusicController m1;
+    PopcornController p1;
+
+    boolean open();
+    boolean close();
+}
+
+Controller <|-- DVDController
+Controller <|-- MusicController
+Controller <|-- PopcornController
+
+MyFacade <--o DVDController
+MyFacade <--o MusicController
+MyFacade <--o PopcornController
+
+@enduml

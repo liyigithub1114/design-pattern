@@ -1,0 +1,38 @@
+@startuml
+
+abstract class Brand{
+    abstarct void close();
+    abstract void open();
+}
+
+class XiaoMi{
+    void close();
+    void open();
+}
+
+class Vivo{
+    void close();
+    void open();
+}
+
+abstract class Phone{
+    Brand brand;
+
+    public Phone(Breand brand);
+
+    abstarct void close();
+
+    abstarct void open();
+}
+
+class FoldedPhone{
+    FoledPhone(Brand brand);
+    void close();
+    void open();
+}
+
+Brand <|-- XiaoMi
+Brand <|-- Vivo
+Phone <--o Brand
+Phone <|-- FoldedPhone
+@enduml

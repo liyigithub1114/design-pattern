@@ -1,0 +1,21 @@
+@startuml
+
+interface ITeach{
+    void teach();
+}
+
+class Teach{
+    void teach();
+}
+
+class TeachProxy{
+    ITeach iteach;
+
+    void teach();
+}
+
+ITeach <|.. Teach
+ITeach <|.. TeachProxy
+Client ..> TeachProxy
+
+@enduml

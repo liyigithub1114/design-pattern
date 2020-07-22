@@ -1,0 +1,48 @@
+@startuml
+
+abstract class MyComponent{
+    String des;
+    Stirng name;
+
+    public MyComponent(String des,String name);
+    get();
+    set();
+    void print();
+    void add();
+    boolean remove();
+}
+
+class University{
+    public University(String des,Stirng name);
+
+    List<MyComponent> res;
+
+    void print();
+    void add();
+    boolean remove();
+
+}
+
+class College{
+    public College(String des,Stirng name);
+
+    List<MyComponent> res;
+
+    void print();
+    void add();
+    boolean remove();
+
+}
+
+class Department{
+    public Department(String des,Stirng name);
+
+    void print();
+}
+
+MyComponent <|-- University
+MyComponent <|-- College
+MyComponent <|-- Department
+University <--o College
+College <--o Department
+@enduml

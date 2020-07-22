@@ -1,0 +1,37 @@
+@startuml
+
+abstract Colleague{
+    Mediator mediator;
+    String name;
+
+    public Colleague(Mediator mediator , String name);
+    abstract void sendMessage(int status, String name);
+    getMediator();
+    getName();
+}
+
+class Coffee extends Colleague{
+    public Coffee(Mediator mediator , String name);
+    void sendMessage(int status, String name); 调用getMediator().sendMessage(status,name)
+    void work();
+}
+
+class TV extends Colleague{
+    public TV(Mediator mediator , String name);
+    void sendMessage(int status, String name); 调用getMediator().sendMessage(status,name)
+    void work();
+}
+
+interface Mediator{
+    boolean registryColleague(String name ,Colleague colleague);
+    void sendMessage(int status, String name);
+}
+
+class ConcreteMediator implements Mediator{
+    HashMap<String, Colleague> maps;
+    void sendMessage(int status, String name);
+    public boolean registryColleague(String name, Colleague colleague);
+}
+
+Colleague -- ConcreteMediator
+@enduml

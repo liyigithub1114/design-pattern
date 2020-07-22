@@ -1,0 +1,23 @@
+@startuml
+class Voltage220V{
+    output220V();
+}
+
+interface Voltage5V{
+    output5V();
+}
+
+class VoltageAdapter{
+    output5V();此处继承220V后，拿到220V进行转换
+}
+
+class Phone{
+    Voltage5V voltage5V;
+
+    charging();
+}
+
+Voltage5V <|.. VoltageAdapter : 实现
+Voltage220V <|-- VoltageAdapter : 继承
+Voltage5V <--o Phone : 聚合
+@enduml

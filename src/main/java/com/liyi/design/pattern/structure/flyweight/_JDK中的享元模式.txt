@@ -1,0 +1,20 @@
+Integer x = Integer.valueOf(127);
+Integer y = new Integer(127);
+Integer z = Integer.valueOf(127);
+Integer w = new Integer(127);
+System.out.println(x.equals(y)); // ? true
+System.out.println(x == y ); // ? false
+System.out.println(x == z ); // ? true
+System.out.println(w == x ); // ? false
+System.out.println(w == y ); // ? false
+
+//享元模式， 如果valueOf(在-127 到 128中) 缓存起来，否则新建对象
+public final class Integer extends Number implements Comparable<Integer> {
+    public static Integer valueOf(int i) {
+        if (i >= IntegerCache.low && i <= IntegerCache.high)
+            return IntegerCache.cache[i + (-IntegerCache.low)];
+        return new Integer(i); }
+    public Integer(int value) { this.value = value; } }
+Integer a = new Integer(200);
+Integer b = new Integer(200);
+a == b ; false

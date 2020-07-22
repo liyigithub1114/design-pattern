@@ -1,0 +1,36 @@
+@startuml
+
+interface Command{
+    void execute();
+    void undo();
+}
+
+class LightOnCommand{
+   LightReceiver lightReceiver;
+   public LightOnCommand(LightReceiver lightReceiver);
+   void execute();
+   void undo();
+}
+
+class LightOffCommand{
+   LightReceiver lightReceiver;
+   public LightOffCommand(LightReceiver lightReceiver);
+   void execute();
+   void undo();
+}
+
+class RemoteController{
+    Command[] commandOn;
+    Command[] commandOff;
+
+    void buttonOn();
+    void buttonOff();
+    void undo();
+}
+
+Command <|.. LightOnCommand
+Command <|.. LightOffCommand
+LightOnCommand <--o LightReceiver
+LightOffCommand <--o LightReceiver
+RemoteController <--o Command
+@enduml

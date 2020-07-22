@@ -1,0 +1,55 @@
+@startuml
+
+abstract class MyState{
+    abstract void deduceMoney();
+    abstract boolean lottery();
+    abstract void dispensePrise();
+}
+
+class DeduceState extends MyState{
+    public DeduceState(MyActivity myActivity);
+
+    void deduceMoney();
+    boolean lottery();
+    void dispensePrise();
+
+}
+
+class LotteryState extends MyState{
+    public LotteryState(MyActivity myActivity);
+
+    void deduceMoney();
+    boolean lottery();
+    void dispensePrise();
+
+}
+
+class DispenseState extends MyState{
+    public DispenseState(MyActivity myActivity);
+
+    void deduceMoney();
+    boolean lottery();
+    void dispensePrise();
+
+}
+
+class CanNotDispenseState extends MyState{
+    public CanNotDispenseState(MyActivity myActivity);
+
+    void deduceMoney();
+    boolean lottery();
+    void dispensePrise();
+}
+
+class MyActivity{
+    MyState deduceState;
+    MyState LotteryState;
+    MyState DispenseState;
+    MyState CanNotDispenseState;
+
+    int count;
+    MyState myState;
+}
+
+MyState o--> MyActivity
+@enduml

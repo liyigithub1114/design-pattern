@@ -1,0 +1,14 @@
+HashMap<>
+
+public interface Map<K,V> {}
+
+public abstract class AbstractMap<K,V> implements Map<K,V> {} == MyComponent
+
+public class HashMap<K,V> extends AbstractMap<K,V>   == UniversityComponent或者 CollegeComponent
+    implements Map<K,V>, Cloneable, Serializable {}
+
+   内含put , putAll等方法
+
+    Node（每个节点） == Department
+
+   内部只有get,set方法

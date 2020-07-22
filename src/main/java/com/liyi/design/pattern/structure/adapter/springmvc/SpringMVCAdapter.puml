@@ -1,0 +1,50 @@
+@startuml
+interface Controller{
+
+}
+
+class SimpleController{
+    public void doSimplle();
+}
+
+class HttpController{
+    public void doHttp();
+}
+
+class AnnotationController{
+    public void doAnnotation();
+}
+
+Controller <|.. SimpleController : 实现
+Controller <|.. HttpController : 实现
+Controller <|.. AnnotationController : 实现
+
+interface HandlerAdapter{
+    boolean support();
+    void handler();
+}
+
+class SimpleControllerAdapter{
+    boolean support();
+    void handler();
+}
+
+class HttpControllerAdapter{
+    boolean support();
+    void handler();
+}
+
+class AnnotationControllerAdapter{
+    boolean support();
+    void handler();
+}
+
+HandlerAdapter <|.. SimpleControllerAdapter : 实现
+HandlerAdapter <|.. HttpControllerAdapter : 实现
+HandlerAdapter <|.. AnnotationControllerAdapter : 实现
+
+SimpleControllerAdapter --> SimpleController : 依赖
+HttpControllerAdapter --> HttpController : 依赖
+AnnotationControllerAdapter --> AnnotationController : 依赖
+
+@enduml

@@ -1,0 +1,71 @@
+@startuml
+abstract class Pizza{
+
+    String type;
+
+    abstract void prepare();
+    void cook();
+    void cut();
+    void box();
+}
+
+class BJGreekPizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class BJCheesePizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class LDGreekPizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class LDCheesePizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class OrderPizza{
+    AbstractFactory absFactory;
+
+    OrderPizza(); 调用抽象方法absFactory.createPizza()
+}
+
+class OrderStore{
+    main();
+}
+
+class BJFactory{
+    createPizza(); 子类重写
+}
+
+class LDFactory{
+    createPizza(); 子类重写
+}
+
+abstract class AbstractFactory{
+    abstract createPizza();
+}
+
+
+Pizza <|-- BJGreekPizza
+Pizza <|-- BJCheesePizza
+Pizza <|-- LDGreekPizza
+Pizza <|-- LDCheesePizza
+BJGreekPizza <.. BJFactory
+BJCheesePizza <.. BJFactory
+LDGreekPizza <.. LDFactory
+LDCheesePizza <.. LDFactory
+AbstractFactory <|-- BJFactory
+AbstractFactory <|-- LDFactory
+AbstractFactory <--o OrderPizza
+
+@enduml

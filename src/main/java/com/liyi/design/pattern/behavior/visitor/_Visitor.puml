@@ -1,0 +1,41 @@
+@startuml
+abstract class Comment{
+    abstarct void getResMan(Person person); 对男人的而评价
+    abstract void getResWoman(Person person); 对女人的评价
+}
+
+class Success extends Comment{
+    void getResMan(Person person);
+    void getResWoman(Person person);
+}
+
+class Fail extends Comment{
+    void getResMan(Person person);
+    void getResWoman(Person person);
+}
+
+
+abstract class Person{
+    abstract void accept(Comment comment);
+}
+
+class Man extends Person{
+    void accept(Comment comment); comment.getResMan(this)
+}
+
+class Woman extends Person{
+    void accept(Comment comment); comment.getResWoman(this)
+}
+
+class ObjectStructure{
+    List<Person> persons;
+    void set(Person person);
+    void remove(Person person);
+    void display(Comment comment);
+}
+
+Comment <--o Person
+Person <--o Comment
+ObjectStructure o--> Comment
+ObjectStructure o--> Person
+@enduml

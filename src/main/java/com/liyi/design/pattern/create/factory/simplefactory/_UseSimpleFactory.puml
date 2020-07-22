@@ -1,0 +1,44 @@
+@startuml
+abstract class Pizza{
+
+    String type;
+
+    abstract void prepare();
+    void cook();
+    void cut();
+    void box();
+}
+
+class GreekPizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class CheesePizza{
+    void prepare();
+
+    setType(String type);
+}
+
+class OrderPizza{
+    SimpleFactory simpleFactory;
+    OrderPizza();//无参构造，下订单 ，对修改关闭
+}
+
+class OrderStore{
+    main();
+}
+
+class SimpleFactory{
+    Pizza pizza;
+    createPizza(); ：对扩展开放
+
+}
+
+SimpleFactory <..o OrderPizza
+OrderPizza <.. OrderStore
+Pizza <|-- GreekPizza
+Pizza <|-- CheesePizza
+Pizza <.. SimpleFactory
+@enduml

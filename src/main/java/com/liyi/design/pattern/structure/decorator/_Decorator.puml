@@ -1,0 +1,76 @@
+@startuml
+
+abstract Drink{
+
+    float price;
+    String des;
+
+    String setDes();
+    String getDes();
+    String setPrice();
+    String getPrice();
+
+    float cost();
+}
+
+abstract Coffee{
+    float cost();  super.getPrice();
+}
+
+class LongBlack{
+
+    setDes();
+    setPrice();
+    float cost();
+}
+
+class ShortCoffee{
+
+    setDes();
+    setPrice();
+    float cost();
+}
+
+abstract MyDecorator{
+    Drink drink;
+    public MyDecorator(Drink drink);
+
+    float cost();
+    String getDes();
+    float getPrice();
+}
+
+class Milk{
+
+    setPrice();
+    setDesc();
+
+    public Milk(Drink drink);
+}
+
+class Soy{
+
+    setPrice();
+    setDesc();
+
+    public Soy(Drink drink);
+}
+
+class Chocolate{
+
+    setPrice();
+    setDesc();
+
+    public Soy(Drink drink);
+}
+
+Drink <|-- Coffee
+Drink <|-- MyDecorator
+Coffee <|-- LongBlack
+Coffee <|-- ShortCoffee
+MyDecorator <|-- Milk
+MyDecorator <|-- Soy
+MyDecorator <|-- Chocolate
+MyDecorator <--o Drink
+
+@enduml
